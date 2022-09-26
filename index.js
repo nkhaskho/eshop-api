@@ -1,6 +1,7 @@
 const express = require('express')
 const connect = require('./config/db')
 const users = require('./routes/users')
+const products = require('./routes/products')
 const auth = require('./routes/auth')
 
 // swagger open api doc
@@ -21,7 +22,7 @@ app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(express.json());
 
-app.use("/api", [auth, users]);
+app.use("/api", [auth, users, products]);
 
 app.get('/status', (req, res) => {
     res.json({ status: 'active'})
