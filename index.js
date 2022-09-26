@@ -1,6 +1,7 @@
 const express = require('express')
 const connect = require('./config/db')
 const users = require('./routes/users')
+const auth = require('./routes/auth')
 
 // .env config
 require('dotenv').config();
@@ -14,7 +15,7 @@ connect();
 
 app.use(express.json());
 
-app.use("/api", [users]);
+app.use("/api", [auth, users]);
 
 app.get('/status', (req, res) => {
     res.json({ status: 'active'})
