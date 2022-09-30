@@ -1,0 +1,635 @@
+{
+	"info": {
+		"_postman_id": "8e47e868-a81e-4c99-863b-c0ae4c40d944",
+		"name": "eshop-api (dev)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Get all users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWMxYzU3YjVlOTU5OWNiY2IxMmE2ZTQiLCJyb2xlIjoiYWRtaW4iLCJmdWxsTmFtZSI6IlNlbWFoIEtoYXNraG91c3NpIiwiaWF0IjoxNjQwMTcxNjMwfQ.miya_RP9TmZSqBk_pK71XM0_00Dl_Tjy3IonjqQHJj4",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "governorate",
+									"value": "ben arous",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "khaskhoussi",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullName\": \"Naiim Khaskhoussi\",\n    \"username\": \"nkhaskho\",\n    \"email\": \"nkhaskho@gmail.com\",\n    \"role\": \"admin\",\n    \"password\": \"pass1234\",\n    \"phone\": 55944780\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/633219b3171510a70c1789dd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"633219b3171510a70c1789dd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n        \"_id\": \"6324f0b40e8733da5f1ad300\",\n        \"fullName\": \"Naiim Khaskhoussi\",\n        \"username\": \"nkhaskho\",\n        \"email\": \"nkhaskho@gmail.com\",\n        \"role\": \"owner\",\n        \"joinedAt\": \"2022-09-16T21:53:31.382Z\",\n        \"password\": \"$2b$10$juTl9R9tg/XTBdanelHxx.XnSiKPoipt55VdomdVaX1Lq7V1avkm.\",\n        \"phone\": 55944780,\n        \"__v\": 0\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/6324f0b40e8733da5f1ad300",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"6324f0b40e8733da5f1ad300"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGJmMzBkOWNiYzY1MGVmYzE1MTkxMSIsInJvbGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiaGFuZW5lIiwiaWF0IjoxNjYyODQ5Nzg5LCJleHAiOjE2NjU0NDE3ODl9.55nzksYDLPJoL1JWktkL2pe5UgvMIlLGges28TnqBU8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"61b0baf9dc2358d11a94c1d1\",\n    \"userName\": \"n.khaskhoussi\",\n    \"fullName\": \"Naiim Khaskhoussi\",\n    \"email\": \"nkh@gmail.com\",\n    \"role\": \"AGENT\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/62f52cf1ceef67f278b005b6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"62f52cf1ceef67f278b005b6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "Get all products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWMxYzU3YjVlOTU5OWNiY2IxMmE2ZTQiLCJyb2xlIjoiYWRtaW4iLCJmdWxsTmFtZSI6IlNlbWFoIEtoYXNraG91c3NpIiwiaWF0IjoxNjQwMTcxNjMwfQ.miya_RP9TmZSqBk_pK71XM0_00Dl_Tjy3IonjqQHJj4",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "governorate",
+									"value": "ben arous",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "khaskhoussi",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Huile Drachnya\",\n    \"price\": 9.5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get product by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/products/6332211048006a4d5784a752",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"6332211048006a4d5784a752"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update product by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"6332211048006a4d5784a752\",\n    \"name\": \"Huile Olives\",\n    \"price\": 9.8,\n    \"promo\": null,\n    \"image\": null,\n    \"createdAt\": \"2022-09-26T21:59:33.142Z\",\n    \"__v\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/products/6332211048006a4d5784a752",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"6332211048006a4d5784a752"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGJmMzBkOWNiYzY1MGVmYzE1MTkxMSIsInJvbGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiaGFuZW5lIiwiaWF0IjoxNjYyODQ5Nzg5LCJleHAiOjE2NjU0NDE3ODl9.55nzksYDLPJoL1JWktkL2pe5UgvMIlLGges28TnqBU8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"61b0baf9dc2358d11a94c1d1\",\n    \"userName\": \"n.khaskhoussi\",\n    \"fullName\": \"Naiim Khaskhoussi\",\n    \"email\": \"nkh@gmail.com\",\n    \"role\": \"AGENT\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/products/62f52cf1ceef67f278b005b6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"products",
+								"62f52cf1ceef67f278b005b6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "Get all orders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"type": "text",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWMxYzU3YjVlOTU5OWNiY2IxMmE2ZTQiLCJyb2xlIjoiYWRtaW4iLCJmdWxsTmFtZSI6IlNlbWFoIEtoYXNraG91c3NpIiwiaWF0IjoxNjQwMTcxNjMwfQ.miya_RP9TmZSqBk_pK71XM0_00Dl_Tjy3IonjqQHJj4",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "governorate",
+									"value": "ben arous",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "admin",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "khaskhoussi",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client\": \"633219b3171510a70c1789dd\",\n    \"status\": \"on-going\",\n    \"total\": 0,\n    \"products\": [\n        {\n            \"product\": \"6332211048006a4d5784a752\",\n            \"quantity\": 1\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get order by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/orders/6337002ef22a2c5907612199",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders",
+								"6337002ef22a2c5907612199"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update order by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"6337002ef22a2c5907612199\",\n    \"client\": \"633219b3171510a70c1789dd\",\n    \"total\": 7,\n    \"createdAt\": \"2022-09-30T14:41:45.859Z\",\n    \"status\": \"on-going\",\n    \"products\": [\n        {\n            \"product\": \"6332211048006a4d5784a752\",\n            \"quantity\": 1,\n            \"_id\": \"6337002ef22a2c590761219a\"\n        }\n    ],\n    \"__v\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/orders/6337002ef22a2c5907612199",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders",
+								"6337002ef22a2c5907612199"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete order by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMGJmMzBkOWNiYzY1MGVmYzE1MTkxMSIsInJvbGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiaGFuZW5lIiwiaWF0IjoxNjYyODQ5Nzg5LCJleHAiOjE2NjU0NDE3ODl9.55nzksYDLPJoL1JWktkL2pe5UgvMIlLGges28TnqBU8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\": \"61b0baf9dc2358d11a94c1d1\",\n    \"userName\": \"n.khaskhoussi\",\n    \"fullName\": \"Naiim Khaskhoussi\",\n    \"email\": \"nkh@gmail.com\",\n    \"role\": \"AGENT\",\n    \"password\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/orders/62f52cf1ceef67f278b005b6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"orders",
+								"62f52cf1ceef67f278b005b6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "/auth/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"nkhaskho\",\n    \"password\": \"pass1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get server status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
