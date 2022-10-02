@@ -2,6 +2,7 @@
 const { User, validate } = require("../models/user");
 const express = require("express");
 const bcrypt = require("bcrypt");
+const { sendEmail } = require("../services/email-service");
 
 const router = express.Router();
 
@@ -39,6 +40,16 @@ router.post("/users", async (req, res) => {
             const salt = await bcrypt.genSalt(10);
             user.password = await bcrypt.hash(user.password, salt);
             await user.save();
+            // Send welcome email
+            sendEmail(user.email, "Welcome to E-Shop platform", `
+            Hi ${user.fullName},\n
+            Your account has been created with the unique _id: ${user._id},\n
+            You could now access to E-Shop app using your following credentials:
+                * username: ${user.username}
+                * password: ${req.body.password}\n
+            Regards,
+            The E-Shop team
+            `);
             res.send(user);
         })
     } catch (error) {
