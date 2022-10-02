@@ -4,6 +4,7 @@ const users = require('./routes/users')
 const products = require('./routes/products')
 const orders = require('./routes/orders')
 const auth = require('./routes/auth')
+var cors = require('cors')
 
 // swagger open api doc
 const swaggerUi = require('swagger-ui-express');
@@ -18,6 +19,9 @@ const PORT = process.env.PORT || 3000
 
 // connect to database
 connect();
+
+// cores middelware
+app.use(cors())
 
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
